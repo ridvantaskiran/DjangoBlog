@@ -1,0 +1,14 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    <h1>All Blogs</h1>
+    {% for post in posts %}
+        <div class="post">
+            <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                ({{post.create_date}})
+                {{"---->"}}
+            </li>
+        </div>
+    {% endfor %}
+
+{% endblock %}

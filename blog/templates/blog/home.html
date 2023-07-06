@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+  <h1>Blog Home</h1>
+  <p>
+    Welcome to Blog, a website developed by
+    <em>Ridvan Taskiran</em>!
+  </p>
+  <h2>Dynamic content</h2>
+  <p>The library has the following record counts:</p>
+  <ul>
+    <li><strong>Post:</strong> {{ num_post }}</li>
+    <li><strong>Authors:</strong> {{ num_author }}</li>
+    <li><strong>Like:</strong> {{ most_liked }}</li>
+  </ul>
+{% endblock %}

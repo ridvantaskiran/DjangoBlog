@@ -1,0 +1,9 @@
+{% block content %}
+
+    {% for author in authors %}
+        <div class="author">
+            <h1><a href="{{ author.get_absolute_url }}">{{ author.user.first_name }}</a></h1>
+        </div>
+    {% endfor %}
+
+{% endblock %}

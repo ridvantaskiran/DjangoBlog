@@ -17,7 +17,7 @@ class Author(models.Model):
     
     def get_absolute_url(self):
     #Returns the URL to access a particular instance of the model.
-        return reverse('blogs-by-author', args=[str(self.id)])
+        return reverse('author_detail', args=[str(self.id)])
 
 
 class Post(models.Model):
@@ -36,10 +36,13 @@ class Post(models.Model):
 
     def get_absolute_url(self):
     #Returns the URL to access a particular instance of the model.
-        return reverse('post-detail-view', args=[str(self.id)])
+        return reverse('post_detail', args=[str(self.id)])
 
     def __str__(self):
         return self.title
+    
+    def number_of_likes(self):
+        return self.likes.count()
 
 
 class Comment(models.Model):
@@ -63,3 +66,6 @@ class Comment(models.Model):
         else:
             comment=self.content
         return comment
+    
+    def number_of_likes(self):
+        return self.likes.count()
