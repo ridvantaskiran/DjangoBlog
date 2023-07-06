@@ -1,1 +1,16 @@
-<p>{{ deneme }}</p>
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+    <div class="post">
+        <h1>{{ post.title }}</h1>
+        <p><strong>Post date: </strong>{{ post.create_date }}</p>
+        <p><strong>Author : </strong>{{ post.author }}</p>
+        <p>{{ post.content|linebreaks }}</p>
+        <p>{{ post.likes.count }}</p>
+        {% for comments in post.comment_set.all %}
+            <p>{{ comments.content }}</p>
+        {% endfor %}
+    </div>
+
+{% endblock %}

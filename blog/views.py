@@ -9,8 +9,12 @@ def home(request):
 
     num_post = Post.objects.all().count()
     num_author = Author.objects.all().count()
-    #most_liked = Post.objects.all().order_by((Count('likes')))[0]
-    most_liked = Post.objects.annotate(Count('likes'))
+    most_liked = (Post.objects
+    .values('id')
+    .annotate(count=Count('likes'))
+    .order_by()[0]
+    )
+    
     context = {
         'num_post' : num_post,
         'num_author' : num_author,
