@@ -13,4 +13,9 @@
     <li><strong>Number of Authors:</strong> {{ num_author }}</li>
     <li><strong>Most liked Posts:</strong> {{ most_liked }}</li>
   </ul>
+
+  <p>
+    You have visited this page {{ num_visits }} time{{ num_visits|pluralize }}.
+  </p>
+  
 {% endblock %}

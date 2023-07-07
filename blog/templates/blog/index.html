@@ -5,8 +5,8 @@
             <b>{{ post.title }}</b>
             <p>{{ post.content|linebreaks }}</p>
             <p>{{ post.likes.count }}</p>
-            {% for comments in post.comment_set.all %}
-                <p>{{ comments.content }}</p>
+            {% for comment in post.comment_set.all %}
+                <p>{{ comment.content }}</p>
             {% endfor %}
         </div>
         <div class="date">

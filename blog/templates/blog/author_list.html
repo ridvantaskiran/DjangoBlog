@@ -1,8 +1,10 @@
-{% block content %}
+{% extends "blog/base.html" %}
 
+{% block content %}
+    <h1>All Bloggers</h1>
     {% for author in authors %}
         <div class="author">
-            <h1><a href="{{ author.get_absolute_url }}">{{ author.user.first_name }}</a></h1>
+            <li><a href="{{ author.get_absolute_url }}">{{ author.user }}</a></li>
         </div>
     {% endfor %}
 

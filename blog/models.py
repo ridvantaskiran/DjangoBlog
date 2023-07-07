@@ -6,7 +6,7 @@ from django.urls import reverse
 class Author(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.SET_NULL, null=True)
-    bio = models.CharField(max_length=350, help_text='Enter Bio')
+    bio = models.CharField(max_length=350, null=True, help_text='Enter Bio')
     birthday = models.DateField()
 
     class Meta:

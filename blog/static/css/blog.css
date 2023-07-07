@@ -6,3 +6,11 @@
   a {
     text-decoration:none;  
   }
+
+  .col-sm-10{
+    margin-top: 30px;
+  }
+
+  .bio{
+    margin-top: 50px;
+  }

@@ -1,0 +1,25 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    <h1>Blogger: {{ author.user }}</h1>
+
+    <div class="bio">
+        <h1>Bio</h1>
+        <p>{{ author.bio|linebreaks }}</p>
+
+    </div>
+
+    <div class="blog-list">
+        <h1>Blogs List</h1>
+        {% for post in author.post_set.all %}
+        <div class="post">
+            <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                ({{post.create_date}})
+                {{"---->"}}
+            </li>
+        </div>
+    {% endfor %}
+
+    </div>
+
+    {% endblock %}
