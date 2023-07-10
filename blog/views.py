@@ -31,14 +31,9 @@ def home(request):
 
     return render(request, 'blog/home.html', context=context)
 
-# def index(request):
+def index(request):
     
-#     posts = Post.objects.all()
-#     context = {
-#         'posts' : posts,
-#     }
-
-#     return render(request, 'blog/index.html', context=context)
+    return render(request, 'blog/index.html')
 
 def post_list(request):
     posts = Post.objects.all()
