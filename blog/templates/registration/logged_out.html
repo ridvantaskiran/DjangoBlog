@@ -1,0 +1,38 @@
+<form method="POST" id="contactForm" name="contactForm" class="contactForm" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+    
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="label" for="subject">Enter UserName</label>
+                <input type="text" class="form-control" name="name" id="subject" placeholder="UserName">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="label" for="subject">Enter Contact</label>
+                <input type="text" class="form-control" name="contact" id="subject" placeholder="Contact">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="label" for="subject">EMAIL-ADDRESS</label>
+                <input type="text" class="form-control" name="email" id="subject" placeholder="Email">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group-col-6">
+                <label class="label" for="subject">PASSWORD</label>
+                <input type="text" class="form-control" name="password" id="subject" placeholder="Password">
+            </div>
+        </div>
+    
+    
+        <div class="col-md-12">
+            <div class="form-group col-9">
+                <input type="submit" value="Register" class="btn btn-primary">
+                <div class="submitting"></div>
+            </div>
+        </div>
+    </div>
+</form>

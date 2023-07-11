@@ -5,8 +5,7 @@ from django.db.models import Count
 from django.contrib.auth import login
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegistrationForm, AuthorForm
-
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -33,7 +32,7 @@ def home(request):
 
 def index(request):
     
-    return render(request, 'blog/index.html')
+    return render(request, 'registration/login.html')
 
 def post_list(request):
     posts = Post.objects.all()
@@ -53,21 +52,12 @@ def author_list(request):
 
 def register(request):
     if request.method == 'POST':
-        user_form = UserRegistrationForm(request.POST)
-        author_from = AuthorForm(request.POST)
-        if (user_form.is_valid() and author_from.is_valid()):
-            user_form.save()
-            author_from.save()
-            messages.success(request, f'Your account has been created. You can log in now!')    
-            return redirect('home') #change via login page
-    else:
-        user_form = UserRegistrationForm()
-        author_from = AuthorForm()
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
 
-    context = {'user_form': user_form,
-               'author_from': author_from,
-               }
-    return render(request, 'registration/register.html', context)
+        User.objects.create(username=username,email=email,password=password)          
+    return render(request, 'registration/login.html')
 
 def login(request):
     pass

@@ -8,6 +8,7 @@ class Author(models.Model):
     user = models.OneToOneField(User, on_delete=models.SET_NULL, null=True)
     bio = models.CharField(max_length=350, null=True, help_text='Enter Bio')
     birthday = models.DateField()
+    follows = models.ManyToManyField(User, blank=True, related_name='follows')
 
     class Meta:
         ordering = ['user', 'bio']
@@ -25,6 +26,7 @@ class Post(models.Model):
     author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True)
     title = models.CharField(max_length=100, help_text='Enter the post title')
     content = models.TextField(help_text='Content')
+    category = models.CharField(max_length=50, help_text='Select Category')
     likes = models.ManyToManyField(User, blank=True, related_name='liked_posts')
     create_date = models.DateTimeField(
         default=timezone.now

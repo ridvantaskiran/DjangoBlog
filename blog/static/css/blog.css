@@ -40,6 +40,7 @@ a {
 .most-liked{
   text-align: left;
   margin: 10px;
+  line-height: 3;
 }
 
 .head{
@@ -82,8 +83,6 @@ img {
   background: linear-gradient(to right, #FFFFFF, #ECE9E6);
 
 }
-
-
 
 .card__body {
   padding: 1rem;
