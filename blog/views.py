@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Author, Comment
 from django.utils import timezone
 from django.db.models import Count
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -28,11 +28,7 @@ def home(request):
         'num_visits': num_visits,
     }
 
-    return render(request, 'blog/home.html', context=context)
-
-def index(request):
-    
-    return render(request, 'registration/login.html')
+    return render(request, 'blog/profile.html', context=context)
 
 def post_list(request):
     posts = Post.objects.all()
@@ -60,4 +56,16 @@ def register(request):
     return render(request, 'registration/login.html')
 
 def login(request):
-    pass
+
+    if request.method == 'POST':
+        if 'login' in request.POST:
+        
+            email = request.POST.get('email')
+            password = request.POST.get('password')
+            user = authenticate(request,email=email,password=password)
+            if user:
+                login(request, user)
+                return redirect('home')
+        
+        # form is not valid or user is not authenticated
+    return render(request,'registration/login.html')

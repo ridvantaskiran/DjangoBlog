@@ -10,4 +10,4 @@ urlpatterns = [
     path('Bloggers', views.author_list, name='author_list'),
     path('Author/<int:pk>', views.author_detail, name='author_detail'),
     path('register/', views.register, name='register'),
-]
+]   
